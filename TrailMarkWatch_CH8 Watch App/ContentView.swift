@@ -1,17 +1,13 @@
 //
 //  ContentView.swift
-//  TrailMark
+//  TrailMarkWatch_CH8 Watch App
 //
 //  Created by Kit Sitou on 6/23/26.
 //
-import TrailMarkCore
 
 import SwiftUI
 
 struct ContentView: View {
- 
-    
-    
     var body: some View {
         VStack {
             Image(systemName: "globe")
