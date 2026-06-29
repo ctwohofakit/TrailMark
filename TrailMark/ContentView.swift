@@ -10,16 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
  
-    
+    @Environment(AppModel.self) private var model
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView{
+            TodayDashboardView()
+                .tabItem{
+                    Label("Today", systemImage: "sum.max.fill")
+                }
+                .task{
+                    await model.health.requestAuthorization()
+                    await model.health.refreshToday()
+                }
         }
-        .padding()
     }
 }
 
