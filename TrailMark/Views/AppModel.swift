@@ -15,8 +15,6 @@ import TrailMarkCore
 
 final class AppModel{
     let health: HealthKitManager = HealthKitManager()
-    
-    
-    
+    let media: MediaStore = MediaStore()
     
 }
