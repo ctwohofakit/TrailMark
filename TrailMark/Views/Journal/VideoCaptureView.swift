@@ -35,7 +35,7 @@ struct VideoCaptureView: UIViewControllerRepresentable {
         init(onCapture: @escaping(URL, TimeInterval) -> Void){
             self.onCapture = onCapture
         }
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithIngo info: [UIImagePickerController.InfoKey: Any]){
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]){
             picker.dismiss(animated: true)
             guard let url = info[.mediaURL] as? URL else {return}
             let duration = CMTimeGetSeconds(AVURLAsset(url: url).duration)

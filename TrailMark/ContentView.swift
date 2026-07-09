@@ -24,11 +24,11 @@ struct ContentView: View {
                     Label("Journal", systemImage: "waveform")
 
                 }
-            
-            
-            
-            
-            
+            RecoveryView()
+                .tabItem{
+                    Label("Recovery", systemImage: "bed.double.fill")
+                }
+
                 .task{
                     await model.health.requestAuthorization()
                     await model.health.refreshToday()
@@ -39,4 +39,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(AppModel())
 }
