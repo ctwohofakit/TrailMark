@@ -95,16 +95,16 @@ struct RecoveryView: View{
         VStack(alignment: .leading, spacing: 12){
             Label("Active Energy - Last 7 Days", systemImage: "flame.fill")
                 .font(.headline)
-//            if model.health.energyTrend.isEmpty{
-//                HStack{
-//                    Image(systemName: "info.triangle")
-//                    Text("No Energy Data Yet.")
-//                }
-//                .foregroundStyle(.yellow)
-//                .bold()
-//                .frame(height: 40)
-//            } else {
-            Chart(MockDataForRecovery.mockActivityTrend){ point in
+            if model.health.energyTrend.isEmpty{
+                HStack{
+                    Image(systemName: "info.triangle")
+                    Text("No Energy Data Yet.")
+                }
+                .foregroundStyle(.yellow)
+                .bold()
+                .frame(height: 40)
+            } else {
+                Chart(model.health.energyTrend){ point in
                     BarMark(
                         x: .value("Day", point.day, unit: .day),
                         y: .value("kCal", point.activeEnergyKcal)
@@ -117,7 +117,7 @@ struct RecoveryView: View{
                     }
                 }
                 .frame(height: 200)
-//            }
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
@@ -182,6 +182,7 @@ struct RecoveryView: View{
 
 
 #Preview{
+    
     RecoveryView()
         .environment(AppModel())
 }

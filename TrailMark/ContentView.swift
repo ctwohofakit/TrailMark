@@ -33,6 +33,12 @@ struct ContentView: View {
                     await model.health.requestAuthorization()
                     await model.health.refreshToday()
                 }
+            
+            RecordJourneyView()
+                .tabItem{
+                    Label("Journey", systemImage: "map.fill")
+
+                }
         }
     }
 }
